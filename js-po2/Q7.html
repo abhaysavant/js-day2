@@ -1,0 +1,119 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Calculate Percentage and Grade</title>
+    <style>
+        body {
+            display: flex;
+            justify-content: center;
+            padding-top: 40px;
+        }
+        .btn {
+            width: 100px;
+            height: 30px;
+            border-radius: 15px;
+        }
+        .main {
+            border: 2px solid black;
+            padding: 10px;
+        }
+        #total, #percentage, #grade, #result {
+            color: blue;
+            border: 2px solid black;
+            height: 20px;
+            width: 100px;
+            text-align: center;
+            padding: 15px;
+        }
+    </style>
+</head>
+<body>
+    <table class="main">
+        <tr>
+            <td>Physics</td>
+            <td><input type="text" id="inputPhysics"></td>
+        </tr>
+        <tr>
+            <td>Chemistry</td>
+            <td><input type="text" id="inputChemistry"></td>
+        </tr>
+        <tr>
+            <td>Biology</td>
+            <td><input type="text" id="inputBiology"></td>
+        </tr>
+        <tr>
+            <td>Mathematics</td>
+            <td><input type="text" id="inputMathematics"></td>
+        </tr>
+        <tr>
+            <td>Computer</td>
+            <td><input type="text" id="inputComputer"></td>
+        </tr>
+        <tr>
+            <td></td>
+            <td><input type="button" class="btn" value="Calculate" onclick="calculateResult()"></td>
+        </tr>
+        <tr>
+            <td><h2>Total</h2></td>
+            <td><h2 id="total"></h2></td>
+        </tr>
+        <tr>
+            <td><h2>Percentage</h2></td>
+            <td><h2 id="percentage"></h2></td>
+        </tr>
+        <tr>
+            <td><h2>Grade</h2></td>
+            <td><h2 id="grade"></h2></td>
+        </tr>
+        <tr>
+            <td><h2>Result</h2></td>
+            <td><h2 id="result"></h2></td>
+        </tr>
+    </table>
+
+    <script>
+        function calculateResult() {
+            let inputPhysics = parseInt(document.getElementById('inputPhysics').value);
+            let inputChemistry = parseInt(document.getElementById('inputChemistry').value);
+            let inputBiology = parseInt(document.getElementById('inputBiology').value);
+            let inputMathematics = parseInt(document.getElementById('inputMathematics').value);
+            let inputComputer = parseInt(document.getElementById('inputComputer').value);
+
+            let totalMarks = inputPhysics + inputChemistry + inputBiology + inputMathematics + inputComputer;
+            document.getElementById('total').innerHTML = totalMarks;
+            let percentage = totalMarks / 5;
+            document.getElementById('percentage').innerHTML = percentage.toFixed(2);
+            let grade;
+            let result;
+
+            if (percentage >= 90) {
+                grade = "A";
+                result = "Pass";
+            } else if (percentage >= 80) {
+                grade = "B";
+                result = "Pass";
+            } else if (percentage >= 70) {
+                grade = "C";
+                result = "Pass";
+            } else if (percentage >= 60) {
+                grade = "D";
+                result = "Pass";
+            } else if (percentage >= 50) {
+                grade = "E";
+                result = "Pass";
+            } else if (percentage >= 40) {
+                grade = "F";
+                result = "Pass";
+            } else {
+                grade = "F+";
+                result = "Fail";
+            }
+
+            document.getElementById('grade').innerHTML = grade;
+            document.getElementById('result').innerHTML = result;
+        }
+    </script>
+</body>
+</html>

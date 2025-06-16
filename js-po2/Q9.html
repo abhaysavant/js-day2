@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<title>Find Weekday</title>
+<style>
+    body {
+        display: flex;
+        justify-content: center;
+        padding-top: 40px;
+    }
+    .btn {
+        width: 100px;
+        height: 30px;
+        border-radius: 15px;
+    }
+    .main {
+        border: 2px solid black;
+        padding: 10px;
+    }
+    #result {
+        color: blue;
+        border: 2px solid black;
+        height: 20px;
+        width: 353px;
+        text-align: center;
+        padding: 10px;
+    }
+</style>
+</head>
+<body>
+<table class="main">
+    <tr>
+        <td>'S' for Sunday </td>
+    </tr>
+    <tr>
+        <td>'s' for Saturday </td>
+    </tr>
+    <tr>
+        <td>'T' for Tuesday </td>
+    </tr>
+    <tr>
+        <td>'t' for Thursday</td>
+    </tr>
+    <tr>
+        <td>Enter 1st letter of Weekday</td>
+        <td><input type="text" id="inputWeekday"></td>
+    </tr>
+    <tr>
+        <td></td>
+        <td><input class="btn" type="button" value="Check" onclick="findWeekday()"></td>
+    </tr>
+</table>
+<h2 id="result"></h2>
+<script>
+function findWeekday() {
+    let inputWeekday = document.getElementById('inputWeekday').value;
+    let weekdayName;
+    switch(inputWeekday) {
+        case "S": weekdayName = "SUNDAY"; break;
+        case "M": weekdayName = "MONDAY"; break;
+        case "T": weekdayName = "TUESDAY"; break;
+        case "W": weekdayName = "WEDNESDAY"; break;
+        case "t": weekdayName = "THURSDAY"; break;
+        case "F": weekdayName = "FRIDAY"; break;
+        case "s": weekdayName = "SATURDAY"; break;
+        default: weekdayName = "Please Enter Valid Letter";
+    }
+    document.getElementById('result').innerHTML = weekdayName;
+}
+</script>
+</body>
+</html>

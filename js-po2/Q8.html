@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Find Month Name</title>
+    <style>
+        body {
+            display: flex;
+            justify-content: center;
+            padding-top: 40px;
+        }
+        .btn {
+            width: 100px;
+            height: 30px;
+            border-radius: 15px;
+        }
+        .main {
+            border: 2px solid black;
+            padding: 10px;
+        }
+        #result {
+            color: blue;
+            border: 2px solid black;
+            height: 20px;
+            width: 335px;
+            text-align: center;
+            padding: 10px;
+        }
+    </style>
+</head>
+<body>
+    <table class="main">
+        <tr>
+            <td>Enter Digit from 1 to 12</td>
+            <td><input type="text" id="inputMonth"></td>
+        </tr>
+        <tr>
+            <td></td>
+            <td><input type="button" class="btn" value="Check" onclick="findMonth()"></td>
+        </tr>
+    </table>
+    <h2 id="result"></h2>
+    <script>

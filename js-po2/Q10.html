@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<title>Basic Calculator</title>
+<style>
+    body {
+        display: flex;
+        justify-content: center;
+        padding-top: 40px;
+    }
+    .btn {
+        width: 100px;
+        height: 30px;
+        border-radius: 15px;
+    }
+    .main {
+        border: 2px solid black;
+        padding: 10px;
+    }
+    #result {
+        color: blue;
+        border: 2px solid black;
+        height: 20px;
+        text-align: center;
+        padding: 10px;
+    }
+</style>
+</head>
+<body>
+<table class="main">
+    <tr>
+        <td>Enter First Value</td>
+        <td><input type="text" id="inputA"></td>
+    </tr>
+    <tr>
+        <td>Enter Second Value</td>
+        <td><input type="text" id="inputB"></td>
+    </tr>
+    <tr>
+        <td>Enter Operation (+, -, *, /)</td>
+        <td><input type="text" id="inputOperator" placeholder="Ex: + , - , / , *"></td>
+    </tr>
+    <tr>
+        <td></td>
+        <td><input type="button" class="btn" value="Calculate" onclick="calculate()"></td>
+    </tr>
+    <tr>
+        <td><h2>Answer =</h2></td>
+        <td><h2 id="result"></h2></td>
+    </tr>
+</table>
+<script>
+function calculate() {
+    let inputA = parseInt(document.getElementById('inputA').value);
+    let inputB = parseInt(document.getElementById('inputB').value);
+    let inputOperator = document.getElementById('inputOperator').value;
+    let result;
+
+    switch(inputOperator) {
+        case '+':
+            result = inputA + inputB;
+            break;
+        case '-':
+            result = inputA - inputB;
+            break;
+        case '*':
+            result = inputA * inputB;
+            break;
+        case '/':
+            result = inputA / inputB;
+            break;
+        default:
+            result = "Wrong Choice";
+    }
+    document.getElementById('result').innerHTML = result;
+}
+</script>
+</body>
+</html>

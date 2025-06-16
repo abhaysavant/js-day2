@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Find Greatest of Four Numbers</title>
+    <style>
+        body {
+            display: flex;
+            justify-content: center;
+            padding-top: 40px;
+        }
+        .btn {
+            width: 100px;
+            height: 30px;
+            border-radius: 15px;
+        }
+        .main {
+            border: 2px solid black;
+            padding: 10px;
+        }
+        #result {
+            color: blue;
+            border: 2px solid black;
+            height: 20px;
+            width: 230px;
+            text-align: center;
+            padding: 10px;
+        }
+    </style>
+</head>
+<body>
+    <table class="main">
+        <tr>
+            <td>Enter A</td>
+            <td><input type="text" id="inputA"></td>
+        </tr>
+        <tr>
+            <td>Enter B</td>
+            <td><input type="text" id="inputB"></td>
+        </tr>
+        <tr>
+            <td>Enter C</td>
+            <td><input type="text" id="inputC"></td>
+        </tr>
+        <tr>
+            <td>Enter D</td>
+            <td><input type="text" id="inputD"></td>
+        </tr>
+        <tr>
+            <td></td>
+            <td><input type="button" class="btn" value="Check" onclick="findGreatest()"></td>
+        </tr>
+    </table>
+    <h2 id="result"></h2>
+    <script>
+        function findGreatest() {
+            let inputA = parseInt(document.getElementById('inputA').value);
+            let inputB = parseInt(document.getElementById('inputB').value);
+            let inputC = parseInt(document.getElementById('inputC').value);
+            let inputD = parseInt(document.getElementById('inputD').value);
+
+            let greatest;
+            if (inputA > inputB) {
+                if (inputA > inputC) {
+                    greatest = (inputA > inputD) ? inputA : inputD;
+                } else {
+                    greatest = (inputC > inputD) ? inputC : inputD;
+                }
+            } else {
+                if (inputB > inputC) {
+                    greatest = (inputB > inputD) ? inputB : inputD;
+                } else {
+                    greatest = (inputC > inputD) ? inputC : inputD;
+                }
+            }
+            document.getElementById('result').innerHTML = greatest + " is the Greatest";
+        }
+    </script>
+</body>
+</html>

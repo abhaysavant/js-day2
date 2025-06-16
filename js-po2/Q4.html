@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Electricity Bill Calculator</title>
+    <style>
+        body {
+            display: flex;
+            justify-content: center;
+            padding-top: 40px;
+        }
+        .btn {
+            width: 100px;
+            height: 30px;
+            border-radius: 15px;
+        }
+        .main {
+            border: 2px solid black;
+            padding: 10px;
+        }
+        #totalBill {
+            color: blue;
+            border: 2px solid black;
+            height: 20px;
+            width: 100px;
+            text-align: center;
+            padding: 15px;
+        }
+    </style>
+</head>
+<body>
+    <table class="main">
+        <tr>
+            <td>Enter Electricity Units</td>
+            <td><input type="text" id="inputUnits"></td>
+        </tr>
+        <tr>
+            <td></td>
+            <td><input type="button" class="btn" value="Get Bill" onclick="calculateBill()"></td>
+        </tr>
+        <tr>
+            <td><h2>Total Electricity Bill =</h2></td>
+            <td><h2 id="totalBill"></h2></td>
+        </tr>
+        <tr>
+            <td>An additional surcharge of 20% is applied on the total bill.</td>
+        </tr>
+    </table>
+
+    <script>
+        function calculateBill() {
+            let inputUnits = parseInt(document.getElementById('inputUnits').value);
+            let billAmount;
+            if (inputUnits <= 50) {
+                billAmount = inputUnits * 0.50;
+            } else if (inputUnits <= 150) {
+                billAmount = (50 * 0.50) + ((inputUnits - 50) * 0.75);
+            } else if (inputUnits <= 350) {
+                billAmount = (50 * 0.50) + (100 * 0.75) + ((inputUnits - 150) * 1.20);
+            } else {
+                billAmount = (50 * 0.50) + (100 * 0.75) + (200 * 1.20) + ((inputUnits - 350) * 1.50);
+            }
+
+            let surcharge = (billAmount / 100) * 20;
+            billAmount += surcharge;
+
+            document.getElementById('totalBill').innerHTML = billAmount.toFixed(2);
+        }
+    </script>
+</body>
+</html>

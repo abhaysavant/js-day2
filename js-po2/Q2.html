@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Check Even or Odd</title>
+    <style>
+        body {
+            display: flex;
+            justify-content: center;
+            padding-top: 40px;
+        }
+        .btn {
+            width: 100px;
+            height: 30px;
+            border-radius: 15px;
+        }
+        .main {
+            border: 2px solid black;
+            padding: 10px;
+        }
+        #result {
+            color: blue;
+            border: 2px solid black;
+            height: 20px;
+            width: 270px;
+            text-align: center;
+            padding: 10px;
+        }
+    </style>
+</head>
+<body>
+    <table class="main">
+        <tr>
+            <td>Enter Number</td>
+            <td><input type="text" id="inputNumber"></td>
+        </tr>
+        <tr>
+            <td></td>
+            <td><input type="button" class="btn" value="Check" onclick="checkEvenOdd()"></td>
+        </tr>
+    </table>
+    <h2 id="result"></h2>
+    <script>
+        function checkEvenOdd() {
+            let inputNumber = parseInt(document.getElementById('inputNumber').value);
+            if (inputNumber % 2 == 0) {
+                document.getElementById('result').innerHTML = "Number is Even";
+            } else {
+                document.getElementById('result').innerHTML = "Number is Odd";
+            }
+        }
+    </script>
+</body>
+</html>
